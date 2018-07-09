@@ -1,0 +1,103 @@
+﻿<Page x:Class="XMLgenerator.Views.Home.MainHomeView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:XMLgenerator.Views.Home"
+      xmlns:MetroChart="clr-namespace:De.TorstenMandelkow.MetroChart;assembly=De.TorstenMandelkow.MetroChart"
+      mc:Ignorable="d" d:DesignWidth="800"
+      Title="MainHomeView" Loaded="Page_Loaded">
+
+    <Grid>
+        <ScrollViewer Margin="0,50,0,0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="250"/>
+                </Grid.ColumnDefinitions>
+                <Grid Height="100" Margin="0,10,0,0" VerticalAlignment="Top" Background="White" Width="474">
+    
+                    <Grid x:Name="gridRoom" HorizontalAlignment="Left" Height="100" Margin="10,0,0,0" VerticalAlignment="Top" Width="100" Background="White" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave">
+                        <Grid.Effect>
+                            <DropShadowEffect BlurRadius="4" Direction="0" ShadowDepth="0"/>
+                        </Grid.Effect>
+                        <Label Content="Room" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center" FontWeight="Thin"/>
+                        <Label x:Name="lblRoom" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center" FontWeight="Bold" Margin="0,28,0,0" Height="72" VerticalContentAlignment="Center" FontSize="24"/>
+                    </Grid>
+                    <Grid x:Name="gridCourse" HorizontalAlignment="Left" Height="100" Margin="130,0,0,0" VerticalAlignment="Top" Width="100" Background="White" MouseEnter="gridCourse_MouseEnter" MouseLeave="gridCourse_MouseLeave">
+                        <Grid.Effect>
+                            <DropShadowEffect BlurRadius="4" Direction="0" ShadowDepth="0"/>
+                        </Grid.Effect>
+                        <Label Content="Course" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center" FontWeight="Thin"/>
+                        <Label x:Name="lblCourse" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center" FontWeight="Bold" Margin="0,28,0,0" Height="72" VerticalContentAlignment="Center" FontSize="24"/>
+                    </Grid>
+                    <Grid x:Name="gridCurricula" HorizontalAlignment="Left" Height="100" Margin="248,0,0,0" VerticalAlignment="Top" Width="100" Background="White" MouseLeave="gridCurricula_MouseLeave" MouseEnter="gridCurricula_MouseEnter">
+                        <Grid.Effect>
+                            <DropShadowEffect BlurRadius="4" Direction="0" ShadowDepth="0"/>
+                        </Grid.Effect>
+                        <Label Content="Curricula" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center" FontWeight="Thin"/>
+                        <Label x:Name="lblCurricula" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center" FontWeight="Bold" Margin="0,28,0,0" Height="72" VerticalContentAlignment="Center" FontSize="24"/>
+                    </Grid>
+                    <Grid x:Name="gridConstraint" HorizontalAlignment="Left" Height="100" Margin="365,0,0,0" VerticalAlignment="Top" Width="100" Background="White" MouseLeave="gridConstraint_MouseLeave" MouseEnter="gridConstraint_MouseEnter">
+                        <Grid.Effect>
+                            <DropShadowEffect BlurRadius="4" Direction="0" ShadowDepth="0"/>
+                        </Grid.Effect>
+                        <Label Content="Constraint" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center" FontWeight="Thin"/>
+                        <Label x:Name="lblConstraint" Content="0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center" FontWeight="Bold" Margin="0,28,0,0" Height="72" VerticalContentAlignment="Center" FontSize="24"/>
+                    </Grid>
+
+                </Grid>
+                <Grid Height="400" Margin="10,10,10,0" VerticalAlignment="Top" Grid.Column="1" Background="White">
+                    <Grid.Effect>
+                        <DropShadowEffect BlurRadius="4" Direction="0" ShadowDepth="0"/>
+                    </Grid.Effect>
+                    <Button x:Name="btnSubRoomsMenu" Content="Rooms" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="210" Height="76" FontSize="20" FontWeight="Thin" Click="btnSubRoomsMenu_Click"/>
+                    <Button x:Name="btnSubConstraintsMenu" Content="Constraints" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" Width="210" Height="76" FontSize="20" FontWeight="Thin" Click="btnSubConstraintsMenu_Click"/>
+                </Grid>
+                <Grid Height="278" Margin="10,132,10,0" VerticalAlignment="Top" Background="White">
+                    <Grid.Effect>
+                        <DropShadowEffect BlurRadius="4" Direction="0" ShadowDepth="0"/>
+                    </Grid.Effect>
+                    <MetroChart:DoughnutChart x:Name="mainChart" InnerRadiusRatio="0.55" ChartTitle="Room, Course, Curriula, Constraint" ChartSubTitle="Count" Margin="0" Background="#FFFAFAFA" MouseLeftButtonUp="mainChart_MouseLeftButtonUp">
+                        <MetroChart:DoughnutChart.Series>
+                            <MetroChart:ChartSeries SeriesTitle="Errors" DisplayMember="Category" ValueMember="Number" ItemsSource="{Binding graphLinesList}"/>
+                        </MetroChart:DoughnutChart.Series>
+                    </MetroChart:DoughnutChart>
+                </Grid>
+                <Grid Margin="10,428,10,10" Background="White" Grid.ColumnSpan="2" MinHeight="300">
+                    <Grid.Effect>
+                        <DropShadowEffect BlurRadius="4" Direction="0" ShadowDepth="0"/>
+                    </Grid.Effect>
+                    <Grid x:Name="subGridRoom" Background="White" Visibility="Visible">
+                        <Label Content="Room" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Thin"/>
+                        <Label x:Name="lblNumberOfRooms" Content="Number of Rooms : 0" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" FontSize="12"/>
+                        <Label x:Name="lblNumberOfBuilding" Content="Number of Buildings : 0" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" FontSize="12"/>
+                        <DataGrid x:Name="dataRooms" Margin="180,47,10,10" IsReadOnly="True"/>
+                    </Grid>
+                    <Grid x:Name="subGridCourse" Background="White" Visibility="Collapsed" Height="300">
+                        <Label Content="Course" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Thin"/>
+                        <Label x:Name="lblNumberOfCourse" Content="Number of Courses : 0" HorizontalAlignment="Left" Margin="10,47,0,0" VerticalAlignment="Top" FontSize="12"/>
+                        <Grid Height="290" Margin="143,10,10,0" VerticalAlignment="Top" Background="White">
+                            <MetroChart:ClusteredColumnChart x:Name="charCourse" ChartTitle="Courses of Teachers" ChartSubTitle="Count" Margin="0" Background="#FFFAFAFA" MouseLeftButtonUp="mainChart_MouseLeftButtonUp">
+                                <MetroChart:ClusteredColumnChart.Series>
+                                    <MetroChart:ChartSeries SeriesTitle="Teachers" DisplayMember="Category" ValueMember="Number" ItemsSource="{Binding graphLinesList}"/>
+                                </MetroChart:ClusteredColumnChart.Series>
+                            </MetroChart:ClusteredColumnChart>
+
+                        </Grid>
+
+                    </Grid>
+                </Grid>
+
+            </Grid>
+        </ScrollViewer>
+        <Grid Height="50" VerticalAlignment="Top" Background="White">
+            <Grid.Effect>
+                <DropShadowEffect ShadowDepth="0" Direction="0" Opacity="0.995"/>
+            </Grid.Effect>
+            <Label Content="Dashboard" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="50" VerticalContentAlignment="Center" FontSize="14" FontWeight="Thin"/>
+            <Button x:Name="btnRoom" Content="Room" HorizontalAlignment="Left" Margin="112,10,0,0" VerticalAlignment="Top" Width="100" Click="btnRoom_Click" IsEnabled="False"/>
+            <Button x:Name="btnCourse" Content="Course" HorizontalAlignment="Left" Margin="217,10,0,0" VerticalAlignment="Top" Width="100" Click="btnCourse_Click"/>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="XMLgenerator.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TeacherId" Type="System.String" Scope="User">
+      <Value Profile="(Default)">000</Value>
+    </Setting>
+    <Setting Name="CourseId" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0000</Value>
+    </Setting>
+    <Setting Name="RoomId" Type="System.String" Scope="User">
+      <Value Profile="(Default)">00</Value>
+    </Setting>
+    <Setting Name="CurriculaId" Type="System.String" Scope="User">
+      <Value Profile="(Default)">000</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

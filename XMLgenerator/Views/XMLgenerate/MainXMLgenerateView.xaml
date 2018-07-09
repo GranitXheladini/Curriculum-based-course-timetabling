@@ -1,0 +1,42 @@
+﻿<Page x:Class="XMLgenerator.Views.XMLgenerate.MainXMLgenerateView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:XMLgenerator.Views.XMLgenerate"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainXMLgenerateView" Loaded="Page_Loaded">
+
+    <Grid>
+
+        <Grid Margin="0,50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Xml View" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontSize="14"/>
+            <Label Content="Nice View" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Grid.Column="1" FontSize="14"/>
+            <TextBox x:Name="txtXmlContent" IsReadOnly="True" Margin="10,44,10,10" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" FontFamily="Consolas" FontSize="12"/>
+            <ScrollViewer Margin="10,44,10,10" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Grid.Column="1" >
+                <StackPanel x:Name="panelNiceView" Orientation="Vertical" Grid.Column="1"/>
+            </ScrollViewer>
+           
+        </Grid>
+
+        <Grid Height="50" VerticalAlignment="Top" Background="White">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="0"/>
+            </Grid.Effect>
+            <Label Content="Generate XML" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontSize="18" Height="50" VerticalContentAlignment="Center" FontWeight="Thin"/>
+        </Grid>
+        <Grid Height="50" VerticalAlignment="Bottom" Background="White" Margin="0">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="5" ShadowDepth="0"/>
+            </Grid.Effect>
+            <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Right" VerticalAlignment="Top" Width="138" Height="30" Margin="0,10,10,0" Click="btnSave_Click"/>
+            <Button x:Name="btnAddConstraitsFromFile" Content="TestConstraints From File" HorizontalAlignment="Right" VerticalAlignment="Top" Width="199" Height="30" Margin="0,10,153,0" Click="btnAddConstraitsFromFile_Click"/>
+        </Grid>
+
+    </Grid>
+</Page>

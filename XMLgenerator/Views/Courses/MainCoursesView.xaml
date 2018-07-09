@@ -1,0 +1,71 @@
+﻿<Page x:Class="XMLgenerator.Views.Courses.MainCoursesView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:XMLgenerator.Views.Courses"
+      mc:Ignorable="d" d:DesignWidth="800"
+      Title="MainCoursesView" Loaded="Page_Loaded" d:DesignHeight="636">
+
+    <Grid>
+        <ScrollViewer Margin="0,50,0,0" VerticalScrollBarVisibility="Auto">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400*"/>
+                    <ColumnDefinition Width="400*"/>
+                </Grid.ColumnDefinitions>
+                <ComboBox x:Name="cmpTeacher" Margin="10,128,10,0" VerticalAlignment="Top" Height="45">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Height="40">
+                                <Label Content="{Binding name}" HorizontalAlignment="Left" Margin="53,5,0,0" VerticalAlignment="Top" Height="45" FontSize="14" FontWeight="Thin" VerticalContentAlignment="Top"/>
+                                <Grid HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="38" Background="Black" Margin="0,5,0,0">
+                                    <Grid.OpacityMask>
+                                        <ImageBrush ImageSource="/XMLgenerator;component/Icons/user-circle.png" Stretch="Uniform"/>
+                                    </Grid.OpacityMask>
+                                </Grid>
+
+                            </Grid>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Button x:Name="btnSave" Content="Save" Margin="0,511,10,0" Width="76" Click="btnSave_Click" FontWeight="Thin" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+                <Label Content="Add a course" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="30" FontWeight="Thin" FontSize="14"/>
+                <Label Content="Course ID" HorizontalAlignment="Left" Margin="10,45,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" FontSize="11" FontWeight="Thin"/>
+                <Label Content="Teacher" HorizontalAlignment="Left" Margin="10,104,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" FontSize="11" FontWeight="Thin"/>
+                <Label Content="Lectures" HorizontalAlignment="Left" Margin="10,237,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" FontSize="11" FontWeight="Thin"/>
+                <TextBox x:Name="txtID" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,69,10,0" VerticalContentAlignment="Center" IsReadOnly="True"/>
+                <TextBox x:Name="txtLectures" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,261,10,0" VerticalContentAlignment="Center"/>
+                <Label Content="Minimum days" HorizontalAlignment="Left" Margin="10,300,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" FontSize="11" FontWeight="Thin"/>
+                <TextBox x:Name="txtMinDays" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,324,10,0" VerticalContentAlignment="Center"/>
+                <Label Content="Students" HorizontalAlignment="Left" Margin="10,359,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" FontSize="11" FontWeight="Thin"/>
+                <TextBox x:Name="txtStudents" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,383,10,0" VerticalContentAlignment="Center"/>
+                <Label Content="Double lectures" HorizontalAlignment="Left" Margin="10,422,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" FontSize="11" FontWeight="Thin"/>
+                <Label Content="Courses" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="30" FontWeight="Thin" FontSize="14" Grid.Column="1"/>
+                <ListBox x:Name="lbCourses" Grid.Column="1" Margin="10,46,10,10">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Height="50">
+                                <Label Content="{Binding course.id}" HorizontalAlignment="Left" Margin="15,-3,0,0" VerticalAlignment="Top" FontSize="16" VerticalContentAlignment="Center"/>
+                                <Label Content="{Binding name}" HorizontalAlignment="Left" Margin="15,19,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" VerticalContentAlignment="Center"/>
+                                <Grid HorizontalAlignment="Left" Height="30" Margin="0,10,0,0" VerticalAlignment="Top" Width="8" Background="#FF21D3CA"/>
+
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <RadioButton x:Name="radYes" Content="Yes" HorizontalAlignment="Left" Margin="10,446,0,0" VerticalAlignment="Top" Width="60" Height="20" AutomationProperties.Name="Yes" IsChecked="True"/>
+                <RadioButton x:Name="radNo" Content="No" HorizontalAlignment="Left" Margin="10,476,0,0" Width="60" Height="20" VerticalAlignment="Top"/>
+                <Label Content="Course name" HorizontalAlignment="Left" Margin="12,178,0,0" VerticalAlignment="Top" Height="24" VerticalContentAlignment="Center" FontSize="11" FontWeight="Thin"/>
+                <TextBox x:Name="txtCourseName" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,202,10,0" VerticalContentAlignment="Center"/>
+            </Grid>
+        </ScrollViewer>
+        <Grid Height="50" VerticalAlignment="Top" Background="White">
+            <Grid.Effect>
+                <DropShadowEffect ShadowDepth="0" BlurRadius="10"/>
+            </Grid.Effect>
+            <Label Content="Course" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Height="50" FontSize="18" FontWeight="Thin" VerticalContentAlignment="Center"/>
+        </Grid>
+
+    </Grid>
+</Page>

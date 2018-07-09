@@ -1,0 +1,34 @@
+﻿<Page x:Class="XMLgenerator.Views.Constraint.MainConstraintPeriodView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:XMLgenerator.Views.Constraint"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="MainConstraintPeriodView" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid VerticalAlignment="Top" Height="50" Background="White">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="0"/>
+            </Grid.Effect>
+            <Label Content="Period" HorizontalAlignment="Left" Margin="50,0,0,0" VerticalAlignment="Top" Height="50" FontSize="18" FontWeight="Thin" VerticalContentAlignment="Center" Width="87"/>
+            <Button x:Name="btnBack" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Height="50" Click="btnBack_Click">
+                <Grid Height="30" Width="30" Background="Black">
+                    <Grid.OpacityMask>
+                        <ImageBrush ImageSource="/XMLgenerator;component/Icons/arrow-2-circle-left.png" Stretch="Uniform"/>
+                    </Grid.OpacityMask>
+                </Grid>
+            </Button>
+        </Grid>
+        <Label Content="Select course" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" FontSize="12" Height="26" VerticalContentAlignment="Center" FontWeight="Thin"/>
+        <ComboBox x:Name="cbCourse" Margin="10,81,107,0" VerticalAlignment="Top" Height="30" DropDownClosed="cbCourse_DropDownClosed"/>
+        <Button x:Name="btnAddDay" IsEnabled="False" Content="Add day" HorizontalAlignment="Right" Margin="0,81,10,0" VerticalAlignment="Top" Width="92" MinWidth="30" Click="btnAddDay_Click"/>
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="92" MinWidth="30" Click="btnSave_Click"/>
+        <ScrollViewer Margin="10,116,10,45">
+            <StackPanel x:Name="spDay" Orientation="Vertical" />
+        </ScrollViewer>
+
+    </Grid>
+</Page>

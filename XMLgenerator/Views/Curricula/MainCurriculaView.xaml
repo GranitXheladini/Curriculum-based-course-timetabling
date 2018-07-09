@@ -1,0 +1,27 @@
+﻿<Page x:Class="XMLgenerator.Views.Curricula.MainCurriculaView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:XMLgenerator.Views.Curricula"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="MainCurriculaView" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid Height="50" VerticalAlignment="Top" Background="White">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="0"/>
+            </Grid.Effect>
+            <Label Content="Curricula" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontSize="18" Height="50" VerticalContentAlignment="Center" FontWeight="Thin"/>
+        </Grid>
+        <TextBox x:Name="txtID" IsReadOnly="True" Height="23" Margin="10,78,110,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Label Content="Curriculum ID" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top" FontSize="12" Height="26" VerticalContentAlignment="Center" FontWeight="Thin"/>
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="100" IsEnabled="False" Click="btnSave_Click"/>
+        <ScrollViewer Margin="10,113,10,45">
+            <StackPanel x:Name="panelCourses" Orientation="Vertical"/>
+        </ScrollViewer>
+        <Button x:Name="btnAddCourse" Content="Add Course" HorizontalAlignment="Right" Margin="0,78,10,0" VerticalAlignment="Top" Width="95" Click="btnAddCourse_Click"/>
+
+    </Grid>
+</Page>
